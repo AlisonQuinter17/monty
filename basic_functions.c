@@ -11,19 +11,31 @@ void push(stack_t **stack, unsigned int count)
 {
 	stack_t *new = NULL;
 	char *elem = strtok(NULL, LIMITERS);
-	/* Assign memory for new node*/
-	new = malloc(sizeof(stack_t));
+	int i = 0;
 
+	if (!elem || (!isdigit(*elem) && *elem != '-'))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", count);
+		exit(EXIT_FAILURE);
+	}
+	while (elem[i])
+	{
+		if (!isdigit(elem[i]) && elem[i] != '-')
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", count);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", count);
 		exit(EXIT_FAILURE);
 	}
-	/* Assign value for new node*/
-	new->n = atoi(elem);
-	/* Previous node we turn in NULL*/
-	new->prev = NULL;
 
+	new->n = atoi(elem);
+	new->prev = NULL;
 	if (*stack)
 	{
 		new->next = *stack;

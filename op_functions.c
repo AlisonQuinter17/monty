@@ -117,7 +117,3 @@ void mul(stack_t **stack, unsigned int count)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
-
-
-
-
