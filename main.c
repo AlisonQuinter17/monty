@@ -1,4 +1,5 @@
 #include "monty.h"
+stack_t **libera = NULL;
 
 /**
  * main - Main function.
@@ -41,7 +42,29 @@ int main(int argc, char *argv[])
 			selector(&head, tokens, count);
 		}
 	}
-	free(line);
+	if (line)
+	{
+		free(line);
+	}
 	fclose(fd);
-	exit(EXIT_FAILURE);
+	atexit(globalfree);
+	exit(EXIT_SUCCESS);
+}
+
+/**
+ * globalfree - This function frees global memory.
+ *
+ * Return: Nothing.
+ **/
+void globalfree(void)
+{
+	stack_t *globalfree = NULL, *list = NULL;
+
+	globalfree = *libera;
+	while (globalfree)
+	{
+		list = globalfree->next;
+		free(globalfree);
+		globalfree = list;
+	}
 }
