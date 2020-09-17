@@ -3,6 +3,7 @@
 /**
  * selector - Function for select parameter op.
  * @stack: Double pointer to the head of the Stack.
+ * @tokens: Entry parameter.
  * @count: Number of the line.
  * Return: Nothing.
  */
@@ -22,7 +23,7 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 
 	int run = 0;
 
-	while(run < 8)
+	while (run < 8)
 	{
 		if (strcmp(commands[run].opcode, tokens) == 0)
 		{

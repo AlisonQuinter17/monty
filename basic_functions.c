@@ -37,7 +37,8 @@ void push(stack_t **stack, unsigned int count)
 }
 
 /**
- * pall - This function prints all the values on the stack, starting from the top of the stack.
+ * pall - This function prints all the values on the stack,
+ * starting from the top of the stack.
  * @stack: Double pointer to the head of the Stack.
  * @count: Number of the line.
  *
@@ -45,8 +46,8 @@ void push(stack_t **stack, unsigned int count)
  **/
 void pall(stack_t **stack, unsigned int count)
 {
-	(void) count;
 	stack_t *list = *stack;
+	(void) count;
 
 	while (list)
 	{
@@ -64,8 +65,8 @@ void pall(stack_t **stack, unsigned int count)
  **/
 void pint(stack_t **stack, unsigned int count)
 {
-	(void) count;
 	stack_t *list = *stack;
+	(void) count;
 
 	printf("%d\n", list->n);
 }

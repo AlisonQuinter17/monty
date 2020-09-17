@@ -63,4 +63,5 @@ void sub(stack_t **stack, unsigned int count)
 	(*stack) = (*stack)->next;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
+
 }
