@@ -42,8 +42,10 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t **libera;
 /* Prototypes */
 void selector(stack_t **stack, char *tokens, unsigned int count);
+void globalfree(void);
 
 /* Basic */
 void push(stack_t **stack, unsigned int count);
