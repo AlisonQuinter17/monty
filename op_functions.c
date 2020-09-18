@@ -62,7 +62,7 @@ void pchar(stack_t **stack, unsigned int count)
 {
 	if (stack == NULL || (*stack) == NULL)
 	{
-		fprintf(stderr, "L%u: can't pchar, stack emptyt\n", count);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", count);
 		exit(EXIT_FAILURE);
 	}
 
