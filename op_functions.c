@@ -50,3 +50,31 @@ void mod(stack_t **stack, unsigned int count)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * pchar -  prints the char at the top of the stack,
+ * followed by a new line.
+ * @stack: Double pointer to the head of the Stack.
+ * @count: Number of the line.
+ *
+ * Return: Nothing.
+ **/
+void pchar(stack_t **stack, unsigned int count)
+{
+	if (!stack || !(*stack))
+	{
+		fprintf(stderr, "L%u: can't pchar, stack emptyt\n", count);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n > 0 || (*stack)->n < 127)
+	{
+		printf("%c\n", (*stack)->n);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n",
+			count);
+		exit(EXIT_FAILURE);
+	}
+}
