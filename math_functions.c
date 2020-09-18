@@ -59,17 +59,17 @@ void _div(stack_t **stack, unsigned int count)
  **/
 void add(stack_t **stack, unsigned int count)
 {
+	int sum;
+
 	if (!stack || !(*stack) || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", count);
-		free(stack);
 		exit(EXIT_FAILURE);
 	}
-
-	(*stack)->next->n += (*stack)->n;
-	(*stack) = (*stack)->next;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	sum = (*stack)->n;
+	sum += (*stack)->next->n;
+	pop(stack, count);
+	(*stack)->n = sum;
 }
 
 /**
