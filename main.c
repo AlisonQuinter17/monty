@@ -38,6 +38,8 @@ int main(int argc, char *argv[])
 	{
 		tokens = strtok(line, LIMITERS);
 		count++;
+		if (!tokens || tokens[0] == '#')
+			continue;
 		if (tokens)
 		{
 			selector(&head, tokens, count);
