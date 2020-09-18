@@ -54,6 +54,7 @@ void pint(stack_t **stack, unsigned int count);
 void swap(stack_t **stack, unsigned int count);
 void pop(stack_t **stack, unsigned int count);
 void nop(stack_t **stack, unsigned int count);
+void pchar(stack_t **stack, unsigned int count);
 
 /* Operations */
 void add(stack_t **stack, unsigned int count);
