@@ -25,7 +25,7 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 
 	int format = 0; /* Variable for travel the structure*/
 
-	while (format < 8)
+	while (format < 10)
 	{
 		/* Compare the entry parameter with the functions for execute*/
 		if (strcmp(functions[format].opcode, tokens) == 0)

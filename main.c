@@ -61,9 +61,5 @@ void freesea(void)
 
 	freesea = *global_head;
 	while (freesea)
-	{
-		aux = freesea->next;
-	}
-	free(freesea);
-	freesea = aux;
+		aux = freesea->next, free(freesea), freesea = aux;
 }
