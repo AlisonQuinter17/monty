@@ -18,7 +18,7 @@ void push(stack_t **stack, unsigned int count)
 		fprintf(stderr, "L%u: usage: push integer\n", count);
 		exit(EXIT_FAILURE);
 	}
-	while (elem[i])
+	while (elem[i] != '\0')
 	{
 		if (!isdigit(elem[i]) && elem[i] != '-')
 		{
@@ -30,7 +30,7 @@ void push(stack_t **stack, unsigned int count)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-	        fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
