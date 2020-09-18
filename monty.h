@@ -58,5 +58,11 @@ void nop(stack_t **stack, unsigned int count);
 /* Operations */
 void add(stack_t **stack, unsigned int count);
 void sub(stack_t **stack, unsigned int count);
+void _div(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 
+void choose(stack_t **stack, char *op, unsigned int line_num);
+void freex(void);
+
+extern stack_t **global_head;
 #endif
