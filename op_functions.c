@@ -60,20 +60,17 @@ void mod(stack_t **stack, unsigned int count)
  **/
 void pchar(stack_t **stack, unsigned int count)
 {
-	if (!stack || !(*stack))
+	if (stack == NULL || (*stack) == NULL)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack emptyt\n", count);
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->n > 65 || (*stack)->n < 127)
-	{
-		printf("%c\n", (*stack)->n);
-	}
-	else
+	if ((*stack)->n < 65 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n",
 			count);
 		exit(EXIT_FAILURE);
 	}
+	printf("%c\n", (*stack)->n);
 }
