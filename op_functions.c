@@ -67,7 +67,7 @@ void pchar(stack_t **stack, unsigned int count)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*stack)->n > 0 || (*stack)->n < 127)
+	if ((*stack)->n > 65 || (*stack)->n < 127)
 	{
 		printf("%c\n", (*stack)->n);
 	}
