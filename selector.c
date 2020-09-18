@@ -38,21 +38,3 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 	fprintf(stderr, "L%u: unknown instruction %s\n", count, tokens);
 	exit(EXIT_FAILURE);
 }
-
-/**
- * freesea - This function frees memory.
- *
- * Return: Nothing
- */
-void freesea(void)
-{
-	stack_t *freesea = NULL, *aux = NULL;
-
-	freesea = *global_head;
-	while (freesea)
-	{
-		aux = freesea->next;
-	}
-	free(freesea);
-	freesea = aux;
-}

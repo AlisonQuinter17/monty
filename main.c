@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 	unsigned int count = 0;
 	char *tokens, *line = NULL;
 	stack_t *head = NULL;
+
 	global_head = &head;
 
 	if (argc != 2)
@@ -47,4 +48,22 @@ int main(int argc, char *argv[])
 	fclose(fd);
 	atexit(freesea);
 	exit(EXIT_SUCCESS);
+}
+
+/**
+ * freesea - This function frees memory.
+ *
+ * Return: Nothing
+ */
+void freesea(void)
+{
+	stack_t *freesea = NULL, *aux = NULL;
+
+	freesea = *global_head;
+	while (freesea)
+	{
+		aux = freesea->next;
+	}
+	free(freesea);
+	freesea = aux;
 }
