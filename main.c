@@ -85,7 +85,6 @@ int main(int argc, char *argv[])
 	if (line)
 		free(line);
 	fclose(fd);
-	atexit(freex);
 	exit(EXIT_SUCCESS);
 }
 
