@@ -80,7 +80,7 @@ void pall(stack_t **stack, unsigned int count)
  **/
 void pint(stack_t **stack, unsigned int count)
 {	/* Pass the value of stack to list so stack is not modified*/
-	if (stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", count);
 		exit(EXIT_FAILURE);
