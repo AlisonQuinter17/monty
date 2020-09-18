@@ -7,6 +7,43 @@
  *
  * Return: Nothing.
  **/
+void push(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newnode;
+	char *n;
+	int i;
+
+	n = strtok(NULL, LIMITERS);
+	if (n == NULL || (!isdigit(*n) && *n != '-'))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	for (i = 0; n[i] != '\0'; i++)
+	{
+		if (!isdigit(n[i]) && n[i] != '-')
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+	newnode = malloc(sizeof(stack_t));
+	if (newnode == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
+	newnode->n = atoi(n);
+	newnode->prev = NULL;
+	newnode->next = *stack;
+
+	if (*stack != NULL)
+		(*stack)->prev = newnode;
+
+	*stack = newnode;
+}
+/*
 void push(stack_t **stack, unsigned int count)
 {
 	stack_t *new = NULL;
@@ -47,7 +84,7 @@ void push(stack_t **stack, unsigned int count)
 		*stack = new;
 		new->next = NULL;
 	}
-}
+	}*/
 
 /**
  * pall - This function prints all the values on the stack,

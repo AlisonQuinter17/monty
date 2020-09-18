@@ -40,7 +40,8 @@ int main(int argc, char *argv[])
 			selector(&head, tokens, count);
 		}
 	}
-	free(line);
+	if (line)
+		free(line);
 	fclose(fd);
 	exit(EXIT_SUCCESS);
 }

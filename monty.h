@@ -48,7 +48,7 @@ void selector(stack_t **stack, char *tokens, unsigned int count);
 void globalfree(void);
 
 /* Basic */
-void push(stack_t **stack, unsigned int count);
+void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int count);
 void pint(stack_t **stack, unsigned int count);
 void swap(stack_t **stack, unsigned int count);
