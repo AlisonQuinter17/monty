@@ -35,7 +35,7 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 			return;
 		}
 		format++;
-	}
+			}
 	if (tokens[0] != '#')
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", count, tokens);
