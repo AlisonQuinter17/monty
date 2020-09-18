@@ -20,12 +20,13 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 		{"pop", pop},
 		{"div", _div},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
 	int format = 0; /* Variable for travel the structure*/
 
-	while (format < 10)
+	while (format < 11)
 	{
 		/* Compare the entry parameter with the functions for execute*/
 		if (strcmp(functions[format].opcode, tokens) == 0)
@@ -35,6 +36,9 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 		}
 		format++;
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", count, tokens);
-	exit(EXIT_FAILURE);
+	if (tokens[0] != '#')
+	{
+		fprintf(stderr, "L%u: unknown instruction %s\n", count, tokens);
+		exit(EXIT_FAILURE);
+	}
 }
