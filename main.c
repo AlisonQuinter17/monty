@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 		if (strcmp(command, "push") == 0 && l == 1)
 			command = "pushc";
 		if (command)
-			choose(&head, command, line_num);
+		        selector(&head, command, line_num);
 	}
 	if (line)
 		free(line);
