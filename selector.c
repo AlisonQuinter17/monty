@@ -21,12 +21,13 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 		{"div", _div},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 
 	int format = 0; /* Variable for travel the structure*/
 
-	while (format < 11)
+	while (format < 12)
 	{
 		/* Compare the entry parameter with the functions for execute*/
 		if (strcmp(functions[format].opcode, tokens) == 0)
