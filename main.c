@@ -7,7 +7,7 @@ stack_t **global_head = NULL;
  *
  * Description: This is the main function of the Monty project.
  * Return: The success or error.
- **//*
+ **/
 int main(int argc, char *argv[])
 {
 	ssize_t reading;
@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 	unsigned int count = 0;
 	char *tokens, *line = NULL;
 	stack_t *head = NULL;
+	global_head = &head;
 
 	if (argc != 2)
 	{
@@ -43,8 +44,10 @@ int main(int argc, char *argv[])
 	if (line)
 		free(line);
 	fclose(fd);
+	atexit(freex);
 	exit(EXIT_SUCCESS);
-	}*/
+}
+/*
 int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
@@ -69,61 +72,16 @@ int main(int argc, char *argv[])
 	{
 		command = strtok(line, LIMITERS);
 		line_num++;
-		if (command == NULL || command[0] == '#')
-			continue;
-		if (strcmp(command, "queue") == 0)
-		{ l = 1;
-			continue; }
-		if (strcmp(command, "stack") == 0)
-		{ l = 0;
-			continue; }
-		if (strcmp(command, "push") == 0 && l == 1)
-			command = "pushc";
+
 		if (command)
 		        selector(&head, command, line_num);
 	}
 	if (line)
 		free(line);
 	fclose(fd);
+        atexit(freex);
 	exit(EXIT_SUCCESS);
-}
-
-
-/**
- * choose - redirect according command
- * @stack: pointer to the head of the stack
- * @op: command
- * @line_num: number of line
- * Return: void
- */
-void choose(stack_t **stack, char *op, unsigned int line_num)
-{
-	int i;
-	instruction_t mao[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"div", _div},
-		{"mul", mul},
-		{NULL, NULL}
-	};
-	for (i = 0; mao[i].opcode; i++)
-		if (strcmp(op, mao[i].opcode) == 0)
-		{
-			mao[i].f(stack, line_num);
-			return;
-		}
-	if (strlen(op) != 0 && op[0] != '#')
-	{
-		fprintf(stderr, "L%u: unknown instruction %s\n", line_num, op);
-		exit(EXIT_FAILURE);
-	}
-}
+}*/
 
 /**
  * freex - global frees memory
