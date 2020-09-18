@@ -29,7 +29,10 @@ void selector(stack_t **stack, char *tokens, unsigned int count)
 		if (strcmp(functions[format].opcode, tokens) == 0)
 		{
 			functions[format].f(stack, count);
+			return;
 		}
 		format++;
 	}
+        fprintf(stderr, "L%u: unknown instruction %s\n", count, tokens);
+	exit(EXIT_FAILURE);
 }

@@ -108,7 +108,7 @@ void mul(stack_t **stack, unsigned int count)
 {
 	if (!stack || !(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", count);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", count);
 		exit(EXIT_FAILURE);
 	}
 

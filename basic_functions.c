@@ -13,7 +13,7 @@ void push(stack_t **stack, unsigned int count)
 	char *elem = strtok(NULL, LIMITERS);
 	int i = 0;
 
-	if (!elem || (!isdigit(*elem) && *elem != '-'))
+	if (!elem)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", count);
 		exit(EXIT_FAILURE);
@@ -30,7 +30,7 @@ void push(stack_t **stack, unsigned int count)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", count);
+	        fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -79,17 +79,13 @@ void pall(stack_t **stack, unsigned int count)
  * Return: Nothing.
  **/
 void pint(stack_t **stack, unsigned int count)
-{
-	/* Pass the value of stack to list so stack is not modified*/
-	stack_t *list = *stack;
-
-	if (stack == NULL || *stack == NULL)
+{	/* Pass the value of stack to list so stack is not modified*/
+	if (stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", count);
 		exit(EXIT_FAILURE);
 	}
-
-	printf("%d\n", list->n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
@@ -101,17 +97,16 @@ void pint(stack_t **stack, unsigned int count)
  **/
 void pop(stack_t **stack, unsigned int count)
 {
-	stack_t *new_nd;
-	/* Pass the value of stack to new_nd so stack is not modified*/
-	new_nd = *stack;
+	stack_t *list = *stack;
 
 	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", count);
 		exit(EXIT_FAILURE);
 	}
-	*stack = new_nd->next;
-	free(new_nd);
+	list = (*stack)->next;
+	free(*stack);
+	*stack = list;
 }
 
 /**
